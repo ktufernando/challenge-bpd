@@ -1,0 +1,314 @@
+{
+	"info": {
+		"_postman_id": "ab4a5738-1fec-449b-8f53-4612dc86dab6",
+		"name": "bpd",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Drivers",
+			"item": [
+				{
+					"name": "Todos los conductores",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/drivers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"drivers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Conductor por id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/drivers/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"drivers",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "6374205efb431916bf912cbd"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Conductor por estado",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/drivers/status/:status",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"drivers",
+								"status",
+								":status"
+							],
+							"variable": [
+								{
+									"key": "status",
+									"value": "ONLINE"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Conductores disponibles en un radio",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/drivers/:longitude/:latitude/:kmDistance",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"drivers",
+								":longitude",
+								":latitude",
+								":kmDistance"
+							],
+							"variable": [
+								{
+									"key": "longitude",
+									"value": "-34.61115923466013"
+								},
+								{
+									"key": "latitude",
+									"value": "-58.370180534907114"
+								},
+								{
+									"key": "kmDistance",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Conductores disponibles para viaje",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/drivers/:longitude/:latitude",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"drivers",
+								":longitude",
+								":latitude"
+							],
+							"variable": [
+								{
+									"key": "longitude",
+									"value": "-34.60895582778654"
+								},
+								{
+									"key": "latitude",
+									"value": "-58.373424903781334"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Passengers",
+			"item": [
+				{
+					"name": "Pasajero por id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/passengers/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"passengers",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "63751b55dd754c1a6cfd92d5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Todos los pasajeros",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/passengers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"passengers"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Trips",
+			"item": [
+				{
+					"name": "Create trip",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"initLocation\": {\r\n        \"x\": -34.61115923466013,\r\n        \"y\": -58.370180534907114,\r\n        \"type\": \"Point\",\r\n        \"coordinates\": [\r\n            -34.61115923466013,\r\n            -58.370180534907114\r\n        ]\r\n    },\r\n    \"passenger\": {\"id\": \"63751b55dd754c1a6cfd92d5\"},\r\n    \"driver\": {\"id\":\"63751b55dd754c1a6cfd92d1\"}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/trips",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"trips"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Viajes por estado",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/trips/status/:status",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"trips",
+								"status",
+								":status"
+							],
+							"variable": [
+								{
+									"key": "status",
+									"value": "ON_TRIP"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar estado de un viaje",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/trips/:id/status/:status",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"trips",
+								":id",
+								"status",
+								":status"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "637535188a37c56ce23bb073"
+								},
+								{
+									"key": "status",
+									"value": "ON_TRIP"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Todos los viajes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/trips",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"trips"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
